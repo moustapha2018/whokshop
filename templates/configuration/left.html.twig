@@ -1,0 +1,57 @@
+<aside class="main-sidebar" >
+    {% set user = app.session.get('user') %}
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Rechercher...">
+                <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+        </form>
+        <!-- /.search form -->
+        <ul class="sidebar-menu" data-widget="tree">
+        {% if user is not null %}
+            <li class="active ">
+                <a href="#"><i class="fa fa-dashboard"></i> Tableaux de bord</a>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Options</span>
+                    <span class="pull-right-container">
+                  <span class="label label-primary pull-right">4</span>
+                </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ path('offres') }}"><i class="fa fa-circle-o"></i> Annonce</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Questionnaire</a></li>
+
+                </ul>
+            </li>
+        {% endif %}
+            <li>
+                <a href="{{ path('home') }}">
+                    <i class="fa fa-eye"></i> <span>Offres</span>
+                    <span class="pull-right-container">
+                      <small class="label pull-right bg-green">Visiter</small>
+                    </span>
+                </a>
+            </li>
+            <li class="header">Plus d'informations</li>
+            <li><a href=""><i class="fa fa-circle-o text-yellow"></i> <span>Qui sommes nous</span></a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Nos Réglements</span></a></li>
+            <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+
+
+
+
+
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

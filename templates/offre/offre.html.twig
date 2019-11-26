@@ -1,0 +1,57 @@
+{% extends 'template.html.twig' %}
+{% block title %}annonces{% endblock %}
+{% block body %}
+
+
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }} mt-10">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <h4><span class="glyphicon glyphicon-plus"></span> Enregistrer une annonce</h4>
+        {{ form(form) }}
+
+    </div>
+    <div class="container">
+        <h4><span class="glyphicon glyphicon-th-list"> </span> Listes des annonces</h4>
+        <div class="table-responsive">
+            <table class="table table-hover">
+
+                <thead>
+                <tr>
+                    <th scope="col">title</th>
+                    <th scope="col">description</th>
+                    <th scope="col"><span class="glyphicon glyphicon-calendar"> </span> Dates</th>
+                    <th scope="col"><span class="glyphicon glyphicon-calendar"> </span> Date debut</th>
+                    <th scope="col"><span class="glyphicon glyphicon-calendar"> </span> Date Fin</th>
+                    <th scope="col"><span class="glyphicon glyphicon-cog"></span> Actions </th>
+                </tr>
+                </thead>
+                {% for offre in offres %}
+                    <tbody>
+                    <tr>
+                        <td>{{ offre.title |truncate(25, false, '...')}}</td>
+                        <td>{{ offre.description |truncate(90, false, '...') }}</td>
+                        <td>{{ offre.startDate| date ('d/m/Y' ) }}</td>
+                        <td>{{ offre.endDate| date('d/m/Y' ) }}</td>
+                        <td>{{ offre.createdAt| date('d/m/Y' ) }}</td>
+                        <td>
+                            <a href="{{ path('edit_offre', {'id': offre.id}) }}" class="btn btn-warning"><strong class="glyphicon glyphicon-pencil"> Modifier</strong></a>
+                            <a href="{{ path('delete_offre', {'id': offre.id}) }}" class="btn btn-danger"> <strong class="glyphicon glyphicon-remove"> Supprimer</strong></a>
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                {% endfor %}
+            </table>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'template.html.twig' %}
+{% block title %}Modification d'une offre{% endblock %}
+{% block body %}
+
+
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }} mt-10">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <h4><span class="glyphicon glyphicon-edit"></span> Modifier cette offre</h4>
+        {{ form(form) }}
+
+
+    </div>
+
+
+
+{% endblock %}

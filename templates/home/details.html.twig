@@ -1,0 +1,29 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="" style="background-image: url(https://media.ouest-france.fr/v1/pictures/63146b62efbcec4c3f76b8f51e5434f6-montpellier-nous-n-avons-jamais-connu-une-telle-violence-la-fac-de-droit.jpg?width=1260&height=712&fill=0&focuspoint=50%2C25&cropresize=1&client_id=cmsfront&sign=1746ee051c16ac57aa4bc4119e5cb438953b1779630aa67e1f149eaa2165d727);">
+            <div class="container">
+                <div class="mt-20">
+                    <div style=" height:150px;" class="mt-20 mb-20">
+                        <p style="color:white;padding-top:70px;" class="" > L'ENTREPRISE <em >{{ offre.user.companyName |upper}}</em>,
+                            A PUBLIE L'OFFRE <em >{{ offre.title |upper }}</em>, LE <em >{{ offre.createdAt| date('d/m/Y' )}}</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card bg-light mb-3">
+                <h4 card-title>
+                    Description
+                </h4>
+                <p class="card-text">
+                    {{offre.description}}
+                </p>
+                <a href="{{ path('details', {'id': offre.id}) }}" class="btn btn-secondary">Postuler!</a>
+        </div>
+    </div>
+
+
+
+{% endblock %}

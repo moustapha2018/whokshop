@@ -1,0 +1,36 @@
+
+
+    {% extends 'template.html.twig' %}
+
+    {% block title %}Se connecter!{% endblock %}
+
+    {% block body %}
+
+        <div class="container">
+            <div class="wrap-input1 validate-input" data-validate = "Name is required">
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        </br>
+                        <div class="alert alert-{{ label }} mt-10">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+
+            <form action="{{ path('login') }}" method = "POST">
+                <div class="form-group">
+                    <label for="loginUser">login:</label>
+                    <input type="text" class="form-control" id="loginUser", name="loginUser">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd", name="pwd">
+                </div>
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+            </form>
+        </div>
+
+
+    {% endblock %}
+
